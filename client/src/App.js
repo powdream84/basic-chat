@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import SendIcon from "./assets/icons/send_2.png";
 import "./App.css";
@@ -25,9 +25,16 @@ function App() {
     }
   };
 
+  const scrollToBottom = (elem) => (elem.current.scrollTop = elem.current.scrollHeight);
+  const elemChatBox = useRef(null);
+
   useEffect(() => {
     socket.on("receive_message", (message) => setAllMessages((allMessages) => [...allMessages, message]));
   }, []);
+
+  useEffect(() => {
+    scrollToBottom(elemChatBox);
+  }, [allMessages]);
 
   const listOfMessages = allMessages.map((message, index) => (
     <div className={message.user === socket.id ? "sent-messages" : "received-messages"} key={`message_${index}`}>
@@ -37,7 +44,9 @@ function App() {
 
   return (
     <div className="app">
-      <div className="messages">{listOfMessages}</div>
+      <div ref={elemChatBox} className="messages">
+        {listOfMessages}
+      </div>
       <div className="sendNewMessage">
         <input
           className="sendInput"
