@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "vt323regular";
+  src: url("./assets/fonts/vt323-regular-webfont.woff2") format("woff2"), url("./assets/fonts/vt323-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.app {
+  width: 600px;
+  font-family: "vt323regular";
+  font-size: 1.2rem;
+}
+
+.messages {
+  height: 1000px;
+  background-color: rgb(75, 75, 75);
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.sendNewMessage {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.sendInput {
+  flex-grow: 6;
+  padding: 0 0 0 0.5rem;
+  font-family: "vt323regular";
+  font-size: 1.2rem;
+}
+
+.sendButton {
+  flex-grow: 1;
+  padding: 0;
+}
+
+.sendButton img {
+  width: 30px;
+}
+
+.sent-messages {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.received-messages {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sent-messages p {
+  width: 40%;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #97beeb;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.received-messages p {
+  width: 40%;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f0b3ff;
+  overflow-wrap: break-word;
+}
